@@ -1,0 +1,13 @@
+# Local node modules directory
+node_modules/
+
+# Compiled production build directory
+dist/
+
+# Local environment variables
+.env
+.env.local
+
+# OS generated files
+.DS_Store
+Thumbs.db
