@@ -1,0 +1,1099 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <!-- SEO & Social Media Metadata -->
+  <title>LinguMark - İnternetteki Her Kelime Artık Senin Kütüphanen</title>
+  <meta name="description" content="LinguMark Chrome uzantısı ile web sayfalarındaki kelimeleri anında çevirin, Oxford destekli aralıklı tekrar (SM-2) algoritması ile kelime dağarcığınızı kalıcı hale getirin.">
+  <meta name="keywords" content="LinguMark, ingilizce öğrenme, chrome eklentisi, kelime ezberleme, oxford sözlük, spaced repetition, sm-2 algoritması, cümle çevirisi">
+  <meta name="author" content="LinguMark Team">
+  
+  <!-- Open Graph -->
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="LinguMark - İnternetteki Her Kelime Artık Senin Kütüphanen">
+  <meta property="og:description" content="Yabancı makale okurken bilmediğiniz kelimeleri tek tıkla kütüphanenize ekleyin, bilimsel aralıklı tekrar yöntemiyle bir daha hiç unutmayın.">
+  <meta property="og:image" content="/public/icons/cheetah.png">
+  
+  <!-- Favicon -->
+  <link rel="icon" type="image/png" href="/public/icons/logo_32.png">
+
+  <!-- Outfit & Inter Fonts imported through our style.css, processed by Vite -->
+  <link rel="stylesheet" href="/src/style.css">
+
+
+</head>
+<body class="bg-[#FAFAFA] text-slate-900 font-inter antialiased">
+
+  <!-- 1. NAVIGATION HEADER -->
+  <header class="sticky top-0 z-40 w-full bg-white/95 border-b border-slate-200/60 backdrop-blur-md">
+    <div class="container flex items-center justify-between h-16 px-4 mx-auto max-w-7xl">
+      <!-- Logo back to home link -->
+      <a href="#" class="flex items-center gap-2.5 font-outfit text-lg font-bold tracking-tight text-slate-900 hover:opacity-90 transition-opacity">
+        <img src="/public/icons/logo_32.png" alt="LinguMark Logo" class="w-8 h-8 rounded-lg shadow-sm">
+        <span>Lingu<span class="text-teal-600">Mark</span></span>
+      </a>
+
+      <!-- Desktop Links -->
+      <nav class="hidden md:flex items-center gap-8 text-sm font-semibold text-slate-600">
+        <a href="#features" data-i18n="nav_features" class="hover:text-teal-600 transition-colors">Özellikler</a>
+        <a href="#how-it-works" data-i18n="nav_how_it_works" class="hover:text-teal-600 transition-colors">Nasıl Çalışır?</a>
+        <a href="#demo" data-i18n="nav_demo" class="hover:text-teal-600 transition-colors">Canlı Deneyim</a>
+        <a href="#pricing" data-i18n="nav_pricing" class="hover:text-teal-600 transition-colors">Fiyatlandırma</a>
+        <a href="#faq" data-i18n="nav_faq" class="hover:text-teal-600 transition-colors">Sıkça Sorulan Sorular</a>
+      </nav>
+
+      <!-- Action Button & Lang Selector -->
+      <div class="flex items-center gap-3">
+        <select id="websiteLangSelect" class="bg-white border border-slate-200 text-slate-700 text-xs font-bold rounded-lg px-2.5 py-1.5 shadow-sm outline-none cursor-pointer hover:bg-slate-50 transition-colors focus:border-teal-600">
+          <option value="tr">🇹🇷 Türkçe</option>
+          <option value="en">🇬🇧 English</option>
+          <option value="es">🇪🇸 Español</option>
+          <option value="fr">🇫🇷 Français</option>
+          <option value="de">🇩🇪 Deutsch</option>
+        </select>
+        <a href="https://chromewebstore.google.com" target="_blank" data-i18n="add_to_chrome"
+           class="px-4 py-2 text-xs font-bold tracking-wide text-white bg-teal-600 hover:bg-teal-700 active:scale-95 transition-all rounded-lg shadow-sm">
+          Chrome'a Ekle (Ücretsiz)
+        </a>
+      </div>
+    </div>
+  </header>
+
+  <!-- 2. HERO SHOWCASE SECTION -->
+  <section class="relative px-4 py-16 md:py-24 mx-auto max-w-7xl border-b border-slate-200/50">
+    <div class="grid grid-cols-1 lg:grid-cols-12 gap-16 items-center">
+      
+      <!-- Left Column: Copywriting -->
+      <div class="lg:col-span-6 text-left space-y-6">
+        <div class="inline-flex items-center gap-2 px-3.5 py-1 rounded-full border border-teal-500/20 bg-teal-50 text-teal-700 text-xs font-bold" data-i18n="hero_badge">
+          <span class="flex w-2.5 h-2.5 rounded-full bg-teal-500 animate-pulse"></span>
+          %100 Ücretsiz & Açık Kaynak Eklenti!
+        </div>
+
+        <h1 class="text-4xl sm:text-5xl md:text-6xl font-outfit font-black tracking-tighter text-slate-900 leading-[1.1]" data-i18n="hero_title">
+          İnternetteki Her Kelime <br class="hidden sm:inline">
+          Artık Senin <span class="text-teal-600">Kütüphanen.</span>
+        </h1>
+
+        <p class="text-lg text-slate-600 leading-relaxed font-normal" data-i18n="hero_desc">
+          Makale okurken, haber izlerken veya araştırma yaparken bilmediğiniz bir kelime mi gördün? 
+          Sadece seç, sağ tıkla ve LinguMark'a ekle. Bilimsel <span class="text-teal-600 font-bold">SM-2 Aralıklı Tekrar</span> 
+          yöntemiyle bir daha hiç unutma.
+        </p>
+
+        <!-- CTA Links -->
+        <div class="flex flex-col sm:flex-row items-center gap-4 pt-4">
+          <a href="https://chromewebstore.google.com" target="_blank" data-i18n="hero_cta_download"
+             class="w-full sm:w-auto px-6 py-3.5 rounded-lg bg-teal-600 hover:bg-teal-700 text-white font-bold text-sm transition-all flex items-center justify-center gap-2 shadow-sm hover:shadow active:scale-95">
+            Chrome Web Store'dan İndir
+          </a>
+          <a href="#demo" data-i18n="hero_cta_demo"
+             class="w-full sm:w-auto px-6 py-3.5 rounded-lg border border-slate-200 hover:border-slate-300 bg-white hover:bg-slate-50 text-slate-700 font-semibold text-sm transition-all flex items-center justify-center gap-2 active:scale-95">
+            Canlı Demoyu Dene
+          </a>
+        </div>
+      </div>
+
+      <!-- Right Column: welcome.html style right-click translation loop animation -->
+      <div class="lg:col-span-6 w-full relative max-w-lg mx-auto">
+        <div class="bg-white border border-slate-200 rounded-2xl p-8 shadow-md relative h-[420px] flex flex-col justify-between overflow-hidden">
+          
+          <!-- Browser URL Bar -->
+          <div class="flex items-center gap-2 border-b border-slate-100 pb-4 mb-4 select-none">
+            <span class="w-2.5 h-2.5 rounded-full bg-red-400"></span>
+            <span class="w-2.5 h-2.5 rounded-full bg-yellow-400"></span>
+            <span class="w-2.5 h-2.5 rounded-full bg-green-400"></span>
+            <div class="flex-1 bg-slate-50 border border-slate-200/60 rounded text-[11px] font-mono text-slate-400 px-3 py-0.5 ml-2 text-center">
+              medium.com/vocabulary_tips
+            </div>
+          </div>
+
+          <!-- Simulated Article -->
+          <div class="w-full space-y-4 my-auto">
+            <div class="w-2/3 h-4 bg-slate-100 rounded"></div>
+            <div class="w-full h-4 bg-slate-100 rounded"></div>
+            
+            <div class="w-11/12 h-4 bg-slate-100 rounded flex relative">
+              <div class="w-24 h-4 absolute left-12">
+                <span class="absolute inset-0 demo-selection block rounded-sm"></span>
+                <span class="relative z-10 text-[13px] font-mono text-slate-800 leading-[16px] tracking-widest pl-1.5 font-bold">ephemeral</span>
+              </div>
+            </div>
+            
+            <div class="w-5/6 h-4 bg-slate-100 rounded"></div>
+          </div>
+
+          <!-- Fake Context Menu -->
+          <div class="demo-menu absolute left-[48%] top-[38%] w-48 bg-white border border-slate-200 rounded-lg shadow-lg overflow-hidden z-20 select-none">
+            <div class="px-3.5 py-2 text-xs text-slate-500 border-b border-slate-100" data-i18n="context_menu_copy">Kopyala</div>
+            <div class="px-3.5 py-2 text-xs text-slate-500 border-b border-slate-100" data-i18n="context_menu_search">Google ile Ara</div>
+            <div class="px-3.5 py-2.5 text-xs text-teal-700 font-bold bg-teal-50 border-l-4 border-teal-600 flex items-center justify-between">
+              <span data-i18n="context_menu_add">LinguMark'a Ekle</span>
+              <img src="/public/icons/logo_32.png" class="w-4.5 h-4.5 rounded">
+            </div>
+          </div>
+
+          <!-- Fake Cursor -->
+          <div class="demo-cursor absolute left-[38%] top-[30%] z-30 pointer-events-none">
+            <svg class="w-7 h-7 text-slate-800 drop-shadow-sm" fill="currentColor" stroke="white" stroke-width="1.5" viewBox="0 0 24 24">
+              <path d="M4 2v20l5.5-5.5H16L4 2z"/>
+            </svg>
+          </div>
+
+          <!-- Resulting Translation Popup Card -->
+          <div class="demo-card absolute bottom-4 right-4 w-64 bg-white border border-slate-200 rounded-xl p-4 shadow-lg z-10 flex items-center gap-3.5 select-none">
+            <div class="w-9 h-9 rounded-full bg-teal-50 border border-teal-100 flex items-center justify-center shrink-0">
+              <svg class="w-5 h-5 text-teal-600" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/>
+              </svg>
+            </div>
+            <div>
+              <h4 class="text-slate-800 font-bold text-sm mb-0.5">ephemeral</h4>
+              <p class="text-teal-600 text-xs font-semibold" data-i18n="demo_ephemeral_translation">geçici, kısa ömürlü</p>
+            </div>
+          </div>
+
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- 3. CANLI DEMO ALANI (SANDBOX WITH SENTENCE RIGHT-CLICK SUPPORT) -->
+  <section id="demo" class="px-4 py-16 bg-white border-b border-slate-200/50">
+    <div class="container mx-auto max-w-7xl">
+      
+      <!-- Title -->
+      <div class="text-center max-w-3xl mx-auto mb-12">
+        <h2 class="text-3xl font-outfit font-extrabold text-slate-900 mb-3" data-i18n="demo_title">
+          Eklentiyi Kurmadan Önce Canlı Deneyimle
+        </h2>
+        <p class="text-slate-600 text-sm font-normal" data-i18n="demo_desc">
+          Aşağıdaki İngilizce paragrafta yer alan kelimelere <span class="text-teal-600 font-bold">Sol Tıklayarak</span> kelime anlamını görebilir; 
+          cümlelerin herhangi bir yerine <span class="text-teal-600 font-bold">Sağ Tıklayarak</span> tüm cümleyi sayfayı bozmadan yerinde (in-place) Türkçe karşılığıyla değiştirebilirsiniz.
+        </p>
+      </div>
+
+      <!-- Sandbox Frame -->
+      <div id="demo-sandbox-container" class="relative max-w-2xl mx-auto bg-[#FAFAFA] border border-slate-200 rounded-xl p-6 shadow-sm">
+        
+        <!-- Browser Bar header representation -->
+        <div class="flex items-center justify-between pb-4 mb-6 border-b border-slate-200 text-slate-400 text-xs select-none">
+          <div class="flex items-center gap-1.5">
+            <span class="w-2.5 h-2.5 rounded-full bg-slate-200"></span>
+            <span class="w-2.5 h-2.5 rounded-full bg-slate-200"></span>
+            <span class="w-2.5 h-2.5 rounded-full bg-slate-200"></span>
+          </div>
+          <div class="bg-white border border-slate-200 rounded px-4 py-0.5 text-slate-500 font-mono text-[10px] w-2/3 text-center">
+            wikipedia.org/spaced_repetition
+          </div>
+          <div class="flex items-center gap-2 font-semibold">
+            <span class="text-[9px] bg-teal-50 border border-teal-200 text-teal-700 px-2 py-0.5 rounded">
+              <span data-i18n="demo_saved_words_label">Kayıtlı Kelimeler</span>: <span id="demo-saved-count" class="font-bold">0</span>
+            </span>
+          </div>
+        </div>
+
+        <!-- Sample Interactive Text content wrapped in data-sentences -->
+        <div id="sandbox-text-content" class="text-slate-700 leading-relaxed text-base select-text py-2 space-y-4">
+          <p>
+            <!-- Sentence 1 -->
+            <span class="demo-sentence" data-sentence-id="s1" data-original="Language learning has entered a revolutionary era.">Language learning has entered a <span class="demo-word-interactive font-semibold" data-translation="devrim niteliğinde, yenilikçi" data-ipa="/ˌrev.əˈluː.ʃən.er.i/" data-definition="Marked by or causing a complete or dramatic change.">revolutionary</span> era.</span>
+            
+            <!-- Sentence 2 -->
+            <span class="demo-sentence" data-sentence-id="s2" data-original="When you read digital articles in a foreign tongue, you often encounter unfamiliar terms that stall your comprehension.">When you read digital articles in a foreign tongue, you often <span class="demo-word-interactive font-semibold" data-translation="karşılaşmak, rast gelmek" data-ipa="/ɪnˈkaʊn.tər/" data-definition="Unexpectedly experience or be faced with something difficult or hostile.">encounter</span> unfamiliar terms that stall your comprehension.</span>
+          </p>
+          <p>
+            <!-- Sentence 3 -->
+            <span class="demo-sentence" data-sentence-id="s3" data-original="With LinguMark, clicking on a word will instantly reveal its translation, check its Oxford dictionary definitions, and playback its native pronunciation.">With LinguMark, clicking on a word will <span class="demo-word-interactive font-semibold" data-translation="anında, hemen" data-ipa="/ˈɪn.stənt.li/" data-definition="At once; immediately.">instantly</span> reveal its translation, check its Oxford dictionary definitions, and playback its native <span class="demo-word-interactive font-semibold" data-translation="telaffuz, söyleyiş" data-ipa="/prəˌnʌn.siˈeɪ.ʃən/" data-definition="The way in which a word is pronounced.">pronunciation</span>.</span>
+            
+            <!-- Sentence 4 -->
+            <span class="demo-sentence" data-sentence-id="s4" data-original="By adding these words to your list, the system leverages spaced repetition intervals to ensure permanent memory storage.">By adding these words to your list, the system leverages spaced <span class="demo-word-interactive font-semibold" data-translation="tekrar" data-ipa="/ˌrep.əˈtɪʃ.ən/" data-definition="The action of repeating something that has already been said or written.">repetition</span> intervals to ensure permanent memory storage.</span>
+          </p>
+        </div>
+
+        <!-- ABSOLUTE POPUP TOOLTIP (word translations) -->
+        <div id="demo-translation-tooltip" 
+             class="absolute hidden z-20 w-72 bg-white border border-slate-200 rounded-xl p-4 shadow-xl text-left border-l-4 border-l-teal-600 animate-tooltip">
+          
+          <!-- Word and sound -->
+          <div class="flex items-center justify-between mb-2">
+            <div>
+              <h4 id="tooltip-word" class="font-outfit font-bold text-slate-900 text-base">Word</h4>
+              <span id="tooltip-ipa" class="text-[11px] text-teal-600 font-mono font-semibold">/ipa/</span>
+            </div>
+            <!-- Audio Pronunciation -->
+            <button id="tooltip-speak-btn" 
+                    title="Telaffuzu Dinle"
+                    class="p-2 rounded-lg bg-teal-50 hover:bg-teal-100 text-teal-700 transition-all active:scale-95" 
+                    type="button">
+              <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M15.536 8.464a5 5 0 010 7.072M18.364 5.636a9 9 0 010 12.728M12 18.75V5.25L7.75 9H4.5A1.5 1.5 0 003 10.5v3a1.5 1.5 0 001.5 1.5h3.25L12 18.75z"></path>
+              </svg>
+            </button>
+          </div>
+
+          <!-- Turkish Translating context -->
+          <div class="mb-3 border-t border-slate-100 pt-2.5">
+            <span class="text-[9px] text-slate-400 font-bold tracking-wider uppercase block mb-0.5" data-i18n="tooltip_meaning_label">Türkçe Anlamı</span>
+            <p id="tooltip-translation" class="text-xs font-bold text-slate-800">Çeviri</p>
+          </div>
+
+          <!-- Oxford Definition -->
+          <div class="mb-4">
+            <span class="text-[9px] text-slate-400 font-bold tracking-wider uppercase block mb-0.5" data-i18n="tooltip_def_label">Tanım (Oxford)</span>
+            <p id="tooltip-definition" class="text-xs text-slate-500 leading-normal font-light">İngilizce açıklama.</p>
+          </div>
+
+          <!-- Save to library button -->
+          <button id="tooltip-save-btn" 
+                  class="w-full py-2.5 bg-teal-600 hover:bg-teal-700 text-white font-bold text-xs rounded-md shadow-sm active:scale-[0.98] transition-all flex items-center justify-center gap-1.5"
+                  type="button">
+            <svg class="w-3.5 h-3.5" fill="currentColor" viewBox="0 0 20 20">
+              <path d="M5 4a2 2 0 012-2h6a2 2 0 012 2v14l-5-2.5L5 18V4z"></path>
+            </svg>
+            <span data-i18n="tooltip_save_btn">Kelime Kitaplığıma Ekle</span>
+          </button>
+        </div>
+
+        <!-- MOCK CUSTOM CONTEXT MENU (Sentence Translate right-click) -->
+        <div id="demo-context-menu" 
+             class="absolute hidden z-35 w-56 bg-white border border-slate-200 rounded-lg shadow-lg py-1 text-left select-none font-inter text-xs text-slate-700">
+          <button id="context-translate-btn" class="w-full px-4 py-2 hover:bg-teal-50 hover:text-teal-700 text-left font-bold flex items-center justify-between">
+            <span data-i18n="context_translate_btn">LinguMark ile Cümleyi Çevir</span>
+            <img src="/public/icons/logo_32.png" class="w-4 h-4 rounded">
+          </button>
+          <button id="context-speak-btn" class="w-full px-4 py-2 hover:bg-slate-50 text-left" data-i18n="context_speak_btn">Cümleyi Sesli Oku</button>
+          <div class="border-t border-slate-100 my-1"></div>
+          <div class="px-4 py-1 text-[9px] text-slate-400 font-semibold tracking-wider uppercase" data-i18n="context_helper_label">LinguMark Yardımcı</div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- 4. TÜM ÖZELLİKLER BÖLÜMÜ (9 FEATURES GRID) -->
+  <section id="features" class="px-4 py-20 mx-auto max-w-7xl border-b border-slate-200/50">
+    
+    <!-- Title -->
+    <div class="text-center max-w-3xl mx-auto mb-16">
+      <h2 class="text-3xl font-outfit font-extrabold text-slate-900 mb-4" data-i18n="feat_head_title">
+        LinguMark'ın Güçlü Özellikleri
+      </h2>
+      <p class="text-slate-600 text-sm font-normal" data-i18n="feat_head_desc">
+        LinguMark eklentisi, dil öğrenimini sadece kelime ezberlemekten çıkarıp web'de gezinirken doğal ve bilimsel metotlarla kalıcı hale getiren komple bir platformdur.
+      </p>
+    </div>
+
+    <!-- Features Grid -->
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+      
+      <!-- Feature 1: Web Röntgen -->
+      <div class="glass-card glass-card-hover rounded-xl p-6 border border-slate-200">
+        <div class="w-10 h-10 rounded-lg bg-teal-50 text-teal-600 flex items-center justify-center mb-5 border border-teal-100">
+          <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"></path>
+            <path stroke-linecap="round" stroke-linejoin="round" d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z"></path>
+          </svg>
+        </div>
+        <h3 class="text-lg font-bold text-slate-900 mb-2" data-i18n="feat1_title">Akıllı Web Röntgeni</h3>
+        <p class="text-xs text-slate-600 leading-relaxed font-normal" data-i18n="feat1_desc">
+          Web sitelerindeki bilmediğiniz kelimelerin üzerine gelerek veya tıklayarak anında algılayın. Okuma akışınız asla sekteye uğramaz.
+        </p>
+      </div>
+
+      <!-- Feature 2: Sağ Tık Cümle Çevirisi -->
+      <div class="glass-card glass-card-hover rounded-xl p-6 border border-slate-200">
+        <div class="w-10 h-10 rounded-lg bg-teal-50 text-teal-600 flex items-center justify-center mb-5 border border-teal-100">
+          <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M8.228 9c.549-1.165 2.03-2 3.772-2 2.21 0 4 1.343 4 3 0 1.4-1.278 2.575-3.006 2.907-.542.104-.994.54-.994 1.093m0 3h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+          </svg>
+        </div>
+        <h3 class="text-lg font-bold text-slate-900 mb-2" data-i18n="feat2_title">Yerinde Cümle Çevirisi</h3>
+        <p class="text-xs text-slate-600 leading-relaxed font-normal" data-i18n="feat2_desc">
+          Herhangi bir metin bloğunu seçip sağ tıklayarak tüm cümleyi sayfada orijinal biçimini bozmadan anında Türkçe karşılığıyla yer değiştirin. Tekrar tıklayarak orijinaline geri dönün.
+        </p>
+      </div>
+
+      <!-- Feature 3: Oxford Dictionary Integration -->
+      <div class="glass-card glass-card-hover rounded-xl p-6 border border-slate-200">
+        <div class="w-10 h-10 rounded-lg bg-teal-50 text-teal-600 flex items-center justify-center mb-5 border border-teal-100">
+          <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253"></path>
+          </svg>
+        </div>
+        <h3 class="text-lg font-bold text-slate-900 mb-2" data-i18n="feat3_title">Oxford Sözlük & IPA</h3>
+        <p class="text-xs text-slate-600 leading-relaxed font-normal" data-i18n="feat3_desc">
+          Sözlük tanımları, isim/fiil rolleri (Part of Speech) ve IPA fonetik yazılışlarıyla kelimeleri en doğru şekilde öğrenip telaffuz edin.
+        </p>
+      </div>
+
+      <!-- Feature 4: Audio TTS Pronunciation -->
+      <div class="glass-card glass-card-hover rounded-xl p-6 border border-slate-200">
+        <div class="w-10 h-10 rounded-lg bg-teal-50 text-teal-600 flex items-center justify-center mb-5 border border-teal-100">
+          <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M15.536 8.464a5 5 0 010 7.072M18.364 5.636a9 9 0 010 12.728M12 18.75V5.25L7.75 9H4.5A1.5 1.5 0 003 10.5v3a1.5 1.5 0 001.5 1.5h3.25L12 18.75z"></path>
+          </svg>
+        </div>
+        <h3 class="text-lg font-bold text-slate-900 mb-2" data-i18n="feat4_title">Gerçekçi Ses Telaffuzları</h3>
+        <p class="text-xs text-slate-600 leading-relaxed font-normal" data-i18n="feat4_desc">
+          Kelimelerin Amerikan ve İngiliz aksanlarındaki doğru telaffuzlarını tarayıcının yerel ses motoru (TTS) ile gecikmesiz olarak dinleyin.
+        </p>
+      </div>
+
+      <!-- Feature 5: Collocation Explorer -->
+      <div class="glass-card glass-card-hover rounded-xl p-6 border border-slate-200">
+        <div class="w-10 h-10 rounded-lg bg-teal-50 text-teal-600 flex items-center justify-center mb-5 border border-teal-100">
+          <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z"></path>
+          </svg>
+        </div>
+        <h3 class="text-lg font-bold text-slate-900 mb-2" data-i18n="feat5_title">Collocation (Birlikte Kullanım)</h3>
+        <p class="text-xs text-slate-600 leading-relaxed font-normal" data-i18n="feat5_desc">
+          Datamuse API sorguları ile kelimenin en sık birlikte kullanıldığı kelime gruplarını listeleyerek, kelimeleri kalıplarıyla öğrenin.
+        </p>
+      </div>
+
+      <!-- Feature 6: Visual Word Card Association -->
+      <div class="glass-card glass-card-hover rounded-xl p-6 border border-slate-200">
+        <div class="w-10 h-10 rounded-lg bg-teal-50 text-teal-600 flex items-center justify-center mb-5 border border-teal-100">
+          <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z"></path>
+          </svg>
+        </div>
+        <h3 class="text-lg font-bold text-slate-900 mb-2" data-i18n="feat6_title">Görsel Bellek Araması</h3>
+        <p class="text-xs text-slate-600 leading-relaxed font-normal" data-i18n="feat6_desc">
+          Hızlı Google Görseller butonları ile kelimeleri resimlerle ilişkilendirerek görsel hafızada kalıcılığı artırın.
+        </p>
+      </div>
+
+      <!-- Feature 7: SM-2 Spaced Repetition reviews -->
+      <div class="glass-card glass-card-hover rounded-xl p-6 border border-slate-200">
+        <div class="w-10 h-10 rounded-lg bg-teal-50 text-teal-600 flex items-center justify-center mb-5 border border-teal-100">
+          <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+          </svg>
+        </div>
+        <h3 class="text-lg font-bold text-slate-900 mb-2" data-i18n="feat7_title">Aralıklı Tekrar (SM-2)</h3>
+        <p class="text-xs text-slate-600 leading-relaxed font-normal" data-i18n="feat7_desc">
+          SuperMemo-2 (SM-2) aralıklı tekrar algoritmasıyla kelimeleri unutmaya en yakın olduğunuz zamanlarda karşınıza getirir.
+        </p>
+      </div>
+
+      <!-- Feature 8: FastPath Level Map Gamification -->
+      <div class="glass-card glass-card-hover rounded-xl p-6 border border-slate-200">
+        <div class="w-10 h-10 rounded-lg bg-teal-50 text-teal-600 flex items-center justify-center mb-5 border border-teal-100">
+          <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M9 20l-5.447-2.724A1 1 0 013 16.382V5.618a1 1 0 011.447-.894L9 7m0 13l6-3m-6 3V7m5 10l5.447 2.724A1 1 0 0021 18.82V8.058a1 1 0 00-.553-.894L15 4m0 13V4m0 0L9 7"></path>
+          </svg>
+        </div>
+        <h3 class="text-lg font-bold text-slate-900 mb-2" data-i18n="feat8_title">FastPath Seviye Patikası</h3>
+        <p class="text-xs text-slate-600 leading-relaxed font-normal" data-i18n="feat8_desc">
+          Matematiksel eğrilerle tasarlanmış kilitli seviye haritasında (A2-C1 arası) quizler ve yazma egzersizleriyle öğrenin.
+        </p>
+      </div>
+
+      <!-- Feature 9: Streak and Heatmap progress tracking -->
+      <div class="glass-card glass-card-hover rounded-xl p-6 border border-slate-200">
+        <div class="w-10 h-10 rounded-lg bg-teal-50 text-teal-600 flex items-center justify-center mb-5 border border-teal-100">
+          <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 002 2h2a2 2 0 002-2z"></path>
+          </svg>
+        </div>
+        <h3 class="text-lg font-bold text-slate-900 mb-2" data-i18n="feat9_title">Isı Haritası & Seri (Streak)</h3>
+        <p class="text-xs text-slate-600 leading-relaxed font-normal" data-i18n="feat9_desc">
+          GitHub benzeri 90 günlük aktivite ısı haritası ve çalışma serinizi gösteren streak sayacıyla motivasyonunuzu koruyun.
+        </p>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- 5. HOW IT WORKS SHOWCASE SECTION (Stripe-Style Interactive Mockups Panel) -->
+  <!-- Users hover or click features tabs to see dedicated CSS looping animations inside a simulated browser -->
+  <section id="how-it-works" class="px-4 py-20 bg-slate-50 border-b border-slate-200/50">
+    <div class="container mx-auto max-w-7xl">
+      
+      <div class="text-center max-w-3xl mx-auto mb-16">
+        <span class="text-xs font-bold uppercase tracking-wider text-teal-600" data-i18n="how_badge">Eklenti Arayüzü</span>
+        <h2 class="text-3xl font-outfit font-extrabold text-slate-900 mt-2 mb-3" data-i18n="how_title">
+          Nasıl Çalışır?
+        </h2>
+        <p class="text-slate-600 text-sm font-normal" data-i18n="how_desc">
+          LinguMark eklentisinin her bir özelliğinin tarayıcınızda nasıl çalıştığını interaktif olarak inceleyin.
+        </p>
+      </div>
+
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+        
+        <!-- Left: Interactive Tab Buttons Selector -->
+        <div class="lg:col-span-5 space-y-3.5">
+          
+          <!-- Tab 1: Web Röntgen -->
+          <div data-mockup-tab="roentgen" 
+               class="active-showcase-tab p-4 rounded-xl border border-teal-500/20 bg-white shadow-sm cursor-pointer border-l-4 border-l-teal-600 text-left transition-all">
+            <h3 class="text-sm font-bold text-slate-900 mb-0.5 flex items-center justify-between">
+              <span data-i18n="tab1_title">1. Akıllı Web Röntgeni</span>
+              <span class="text-[10px] bg-teal-50 text-teal-700 px-2 py-0.5 rounded font-bold uppercase" data-i18n="tab1_badge">Röntgen</span>
+            </h3>
+            <p class="text-[11px] text-slate-500" data-i18n="tab1_desc">Kelimenin üzerine gelince anında önizleme kartı açılır.</p>
+          </div>
+
+          <!-- Tab 2: Cümle Çevirisi -->
+          <div data-mockup-tab="sentence" 
+               class="p-4 rounded-xl border border-slate-200/60 hover:bg-slate-100/50 cursor-pointer border-l-4 border-l-transparent text-left transition-all">
+            <h3 class="text-sm font-bold text-slate-700 mb-0.5" data-i18n="tab2_title">2. Sağ Tık Yerinde Cümle Çevirisi</h3>
+            <p class="text-[11px] text-slate-500" data-i18n="tab2_desc">Cümleleri sayfa düzenini bozmadan yerinde çevirir.</p>
+          </div>
+
+          <!-- Tab 3: Oxford & Telaffuz -->
+          <div data-mockup-tab="oxford" 
+               class="p-4 rounded-xl border border-slate-200/60 hover:bg-slate-100/50 cursor-pointer border-l-4 border-l-transparent text-left transition-all">
+            <h3 class="text-sm font-bold text-slate-700 mb-0.5" data-i18n="tab3_title">3. Oxford Tanımları & TTS Telaffuz</h3>
+            <p class="text-[11px] text-slate-500" data-i18n="tab3_desc">Ses dalgalı gerçekçi seslendirmeler ve kelime kökenleri.</p>
+          </div>
+
+          <!-- Tab 4: Collocation -->
+          <div data-mockup-tab="collocation" 
+               class="p-4 rounded-xl border border-slate-200/60 hover:bg-slate-100/50 cursor-pointer border-l-4 border-l-transparent text-left transition-all">
+            <h3 class="text-sm font-bold text-slate-700 mb-0.5" data-i18n="tab4_title">4. Collocation (Birlikte Kullanım)</h3>
+            <p class="text-[11px] text-slate-500" data-i18n="tab4_desc">Kelimenin en sık beraber kullanıldığı kalıpları gösterir.</p>
+          </div>
+
+          <!-- Tab 5: SM-2 Kartları -->
+          <div data-mockup-tab="sm2" 
+               class="p-4 rounded-xl border border-slate-200/60 hover:bg-slate-100/50 cursor-pointer border-l-4 border-l-transparent text-left transition-all">
+            <h3 class="text-sm font-bold text-slate-700 mb-0.5" data-i18n="tab5_title">5. SM-2 Aralıklı Tekrar Kartları</h3>
+            <p class="text-[11px] text-slate-500" data-i18n="tab5_desc">Hatırlama derecenize göre kelimeleri tekrar listeler.</p>
+          </div>
+
+          <!-- Tab 6: FastPath Haritası -->
+          <div data-mockup-tab="fp" 
+               class="p-4 rounded-xl border border-slate-200/60 hover:bg-slate-100/50 cursor-pointer border-l-4 border-l-transparent text-left transition-all">
+            <h3 class="text-sm font-bold text-slate-700 mb-0.5" data-i18n="tab6_title">6. FastPath Seviye Patikası</h3>
+            <p class="text-[11px] text-slate-500" data-i18n="tab6_desc">Gamification destekli seviye ilerleme haritası.</p>
+          </div>
+
+        </div>
+
+        <!-- Right: Showcase viewport screen containing specific CSS looping animations -->
+        <div class="lg:col-span-7 w-full relative">
+          <div class="bg-white border border-slate-200 rounded-2xl shadow-sm p-6 relative h-[360px] flex flex-col justify-between overflow-hidden">
+            
+            <!-- Simulated Browser Header -->
+            <div class="flex items-center gap-2 border-b border-slate-100 pb-3 mb-3 select-none">
+              <span class="w-2 h-2 rounded-full bg-slate-200"></span>
+              <span class="w-2 h-2 rounded-full bg-slate-200"></span>
+              <span class="w-2 h-2 rounded-full bg-slate-200"></span>
+              <div class="flex-1 bg-slate-50 border border-slate-200/40 rounded text-[9px] font-mono text-slate-400 px-3 py-0.5 ml-2 text-center">
+                lingumark.com/app_showcase
+              </div>
+            </div>
+
+            <!-- VIEWPORT CONTAINER FOR ACTIVE MOCKUP (Swapped via JS in main.js) -->
+            <div id="feature-showcase-viewport" class="flex-1 w-full flex items-center justify-center relative">
+              
+              <!-- Mockup 1: Web Röntgen Animation -->
+              <div id="mockup-roentgen" class="w-full text-left space-y-4 max-w-sm">
+                <div class="space-y-2 relative p-4 bg-slate-50 rounded-xl border border-slate-100">
+                  <div class="w-2/3 h-3 bg-slate-200 rounded"></div>
+                  <div class="w-full h-3 bg-slate-200 rounded flex gap-1 items-center">
+                    <span>LinguMark helps you search</span>
+                    <span class="text-teal-600 font-bold border-b border-teal-500/50">unfamiliar</span>
+                    <span>phrases.</span>
+                  </div>
+                  <div class="w-5/6 h-3 bg-slate-200 rounded"></div>
+
+                  <!-- Floating Röntgen preview card -->
+                  <div class="anim-roentgen-tooltip absolute left-[120px] top-[-50px] z-10 w-44 bg-white border border-slate-200 rounded-lg p-3 shadow-md flex gap-2">
+                    <span class="text-lg">📚</span>
+                    <div>
+                      <h5 class="font-bold text-[11px] text-slate-900">unfamiliar</h5>
+                      <p class="text-[10px] text-teal-600 font-semibold">yabancı, bilinmeyen</p>
+                    </div>
+                  </div>
+
+                  <!-- Floating Cursor -->
+                  <div class="anim-roentgen-cursor absolute left-[30px] top-[40px] z-20 pointer-events-none">
+                    <svg class="w-5 h-5 text-slate-800 drop-shadow-sm" fill="currentColor" stroke="white" stroke-width="1.5" viewBox="0 0 24 24">
+                      <path d="M4 2v20l5.5-5.5H16L4 2z"/>
+                    </svg>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Mockup 2: Cümle Çevirisi Animation -->
+              <div id="mockup-sentence" class="hidden w-full text-left max-w-sm">
+                <div class="space-y-2 relative p-4 bg-slate-50 rounded-xl border border-slate-100">
+                  <div class="w-2/3 h-3 bg-slate-200 rounded"></div>
+                  <!-- The sentence with dynamic pseudo-content replacement -->
+                  <div class="w-full text-xs font-semibold leading-relaxed">
+                    When reading online, we meet <span class="anim-sentence-text"></span>
+                  </div>
+                  <div class="w-5/6 h-3 bg-slate-200 rounded"></div>
+
+                  <!-- Context menu -->
+                  <div class="anim-sentence-menu absolute left-[150px] top-[15px] z-10 w-40 bg-white border border-slate-200 rounded shadow-md overflow-hidden py-1">
+                    <div class="px-2.5 py-1.5 text-[10px] text-teal-600 font-bold bg-teal-50 border-l-2 border-teal-600 flex items-center justify-between">
+                      <span>LinguMark ile Çevir</span>
+                      <span class="text-[8px]">LM</span>
+                    </div>
+                    <div class="px-2.5 py-1 text-[9px] text-slate-400">Kopyala</div>
+                  </div>
+
+                  <!-- Cursor -->
+                  <div class="anim-sentence-cursor absolute left-[80px] top-[10px] z-20 pointer-events-none">
+                    <svg class="w-5 h-5 text-slate-800 drop-shadow-sm" fill="currentColor" stroke="white" stroke-width="1.5" viewBox="0 0 24 24">
+                      <path d="M4 2v20l5.5-5.5H16L4 2z"/>
+                    </svg>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Mockup 3: Oxford & Telaffuz (Pulsing waves) -->
+              <div id="mockup-oxford" class="hidden w-full max-w-xs bg-white border border-slate-200 rounded-xl p-5 shadow-sm">
+                <div class="flex items-center justify-between mb-3.5">
+                  <div>
+                    <h4 class="font-bold text-sm text-slate-900">ephemeral</h4>
+                    <span class="text-[10px] text-teal-600 font-mono font-semibold">/ɪˈfem.ər.əl/</span>
+                  </div>
+                  
+                  <!-- Speak soundwave trigger button -->
+                  <div class="w-8 h-8 rounded-full bg-teal-50 text-teal-700 flex items-center justify-center border border-teal-100 shadow-sm relative">
+                    <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24">
+                      <path stroke-linecap="round" stroke-linejoin="round" d="M15.536 8.464a5 5 0 010 7.072M18.364 5.636a9 9 0 010 12.728M12 18.75V5.25L7.75 9H4.5A1.5 1.5 0 003 10.5v3a1.5 1.5 0 001.5 1.5h3.25L12 18.75z"></path>
+                    </svg>
+                  </div>
+                </div>
+                
+                <div class="border-t border-slate-100 pt-3">
+                  <span class="text-[9px] text-slate-400 uppercase font-bold tracking-wider block mb-1" data-i18n="mockup_oxford_wave_label">Ses Dalgaları (Pronunciation Wave)</span>
+                  <!-- Soundwave layout representation -->
+                  <div class="flex items-end justify-center gap-1.5 h-8">
+                    <span class="wave-bar w-1.5 bg-teal-500 rounded-full"></span>
+                    <span class="wave-bar w-1.5 bg-teal-600 rounded-full"></span>
+                    <span class="wave-bar w-1.5 bg-teal-400 rounded-full"></span>
+                    <span class="wave-bar w-1.5 bg-teal-500 rounded-full"></span>
+                    <span class="wave-bar w-1.5 bg-teal-600 rounded-full"></span>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Mockup 4: Collocation -->
+              <div id="mockup-collocation" class="hidden w-full max-w-xs bg-white border border-slate-200 rounded-xl p-4 shadow-sm text-left">
+                <div class="flex items-center gap-2 mb-3 border-b border-slate-100 pb-2">
+                  <span class="text-sm">🔗</span>
+                  <h4 class="font-bold text-xs text-slate-900" data-i18n="mockup_collocation_title">Birlikte Kullanılan Kelimeler (Collocations)</h4>
+                </div>
+                
+                <div class="space-y-2.5">
+                  <!-- Row 1 -->
+                  <div class="space-y-1">
+                    <div class="flex justify-between text-[10px] font-semibold text-slate-700">
+                      <span>ephemeral nature</span>
+                      <span class="text-teal-600"><span data-i18n="score_label">puan</span>: 95</span>
+                    </div>
+                    <div class="w-full bg-slate-100 h-1.5 rounded-full overflow-hidden">
+                      <div class="bg-teal-500 h-full w-[95%]"></div>
+                    </div>
+                  </div>
+                  <!-- Row 2 -->
+                  <div class="space-y-1">
+                    <div class="flex justify-between text-[10px] font-semibold text-slate-700">
+                      <span>ephemeral beauty</span>
+                      <span class="text-teal-600"><span data-i18n="score_label">puan</span>: 84</span>
+                    </div>
+                    <div class="w-full bg-slate-100 h-1.5 rounded-full overflow-hidden">
+                      <div class="bg-teal-500 h-full w-[84%]"></div>
+                    </div>
+                  </div>
+                  <!-- Row 3 -->
+                  <div class="space-y-1">
+                    <div class="flex justify-between text-[10px] font-semibold text-slate-700">
+                      <span>ephemeral art</span>
+                      <span class="text-teal-600"><span data-i18n="score_label">puan</span>: 68</span>
+                    </div>
+                    <div class="w-full bg-slate-100 h-1.5 rounded-full overflow-hidden">
+                      <div class="bg-teal-500 h-full w-[68%]"></div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Mockup 5: SM-2 Kartları (Flashcards loop) -->
+              <!-- Outer frame coordinates 3D depth to make flips realistic -->
+              <div id="mockup-sm2" class="hidden w-56 h-36 perspective" style="perspective: 600px;">
+                <div class="anim-sm2-card-inner w-full h-full relative" style="transform-style: preserve-3d;">
+                  <!-- CARD FRONT -->
+                  <div class="absolute inset-0 bg-white border border-slate-200 rounded-xl p-4 shadow-sm flex flex-col justify-between items-center" style="backface-visibility: hidden;">
+                    <span class="text-[9px] text-slate-400 tracking-widest font-bold uppercase" data-i18n="mockup_sm2_front_label">Hatırla? (Flashcard)</span>
+                    <span class="font-outfit font-bold text-lg text-slate-800 tracking-wide">ephemeral</span>
+                    <span class="text-[9px] text-teal-600 font-semibold" data-i18n="mockup_sm2_front_click">Tıklayıp Çevir</span>
+                  </div>
+                  <!-- CARD BACK -->
+                  <div class="absolute inset-0 bg-teal-50 border border-teal-200 rounded-xl p-4 shadow-sm flex flex-col justify-between items-center" style="backface-visibility: hidden; transform: rotateY(180deg);">
+                    <span class="text-[9px] text-teal-700 tracking-widest font-bold uppercase" data-i18n="mockup_sm2_back_label">Türkçe Anlamı</span>
+                    <span class="font-outfit font-bold text-base text-teal-800" data-i18n="mockup_sm2_back_translation">geçici, kısa ömürlü</span>
+                    <div class="flex gap-1.5">
+                      <span class="text-[8px] bg-red-100 text-red-700 px-1.5 py-0.5 rounded font-bold" data-i18n="mockup_sm2_again">Tekrar</span>
+                      <span class="text-[8px] bg-yellow-100 text-yellow-700 px-1.5 py-0.5 rounded font-bold" data-i18n="mockup_sm2_hard">Zor</span>
+                      <span class="text-[8px] bg-teal-600 text-white px-1.5 py-0.5 rounded font-bold" data-i18n="mockup_sm2_good">İyi</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Mockup 6: FastPath Haritası (Node map) -->
+              <div id="mockup-fastpath" class="hidden w-full max-w-xs relative bg-slate-50 border border-slate-200 rounded-xl p-6 overflow-hidden">
+                <div class="flex items-center gap-2 mb-4 border-b border-slate-200 pb-2">
+                  <span class="text-sm">🛣️</span>
+                  <h4 class="font-bold text-xs text-slate-800" data-i18n="mockup_fp_title">FastPath Patika İlerlemesi</h4>
+                </div>
+
+                <!-- Patika Map Nodes Layout -->
+                <div class="relative flex items-center justify-between max-w-[200px] mx-auto py-4">
+                  <!-- Connection Line -->
+                  <div class="absolute top-1/2 left-0 right-0 h-1 bg-slate-200 -translate-y-1/2"></div>
+                  
+                  <!-- Node 1: Completed -->
+                  <div class="w-8 h-8 rounded-full bg-emerald-50 border-2 border-emerald-500 text-emerald-600 flex items-center justify-center text-xs font-bold relative z-10">
+                    ✓
+                  </div>
+                  <!-- Node 2: Current -->
+                  <div class="w-8 h-8 rounded-full bg-yellow-50 border-2 border-yellow-500 text-yellow-600 flex items-center justify-center text-xs font-bold relative z-10">
+                    2
+                    <!-- Floating Avatar indicator -->
+                    <div class="anim-fp-avatar absolute top-[-26px] left-1 z-25 text-lg">🏃</div>
+                  </div>
+                  <!-- Node 3: Locked -->
+                  <div class="anim-fp-lock w-8 h-8 rounded-full bg-slate-100 border-2 border-slate-300 text-slate-500 flex items-center justify-center text-[10px] font-bold relative z-10">
+                  </div>
+                </div>
+              </div>
+
+            </div>
+
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- 6. FİYATLANDIRMA BÖLÜMÜ (PRICING WITH STANDARDIZED SVG TICK CLASS SIZE) -->
+  <section id="pricing" class="px-4 py-20 bg-white border-b border-slate-200/50">
+    <div class="container mx-auto max-w-7xl">
+      
+      <div class="text-center max-w-3xl mx-auto mb-16">
+        <h2 class="text-3xl font-outfit font-extrabold text-slate-900 mb-3" data-i18n="pricing_title">
+          %100 Ücretsiz & Açık Kaynak
+        </h2>
+        <p class="text-slate-600 text-sm font-normal" data-i18n="pricing_subtitle">
+          Hiçbir gizli ücret, abonelik veya maliyet yok. Her özellik tamamen açık kaynak kodlu ve ücretsizdir.
+        </p>
+      </div>
+
+      <!-- Single Free Card -->
+      <div class="max-w-xl mx-auto">
+        <div class="bg-white border-2 border-teal-600 rounded-2xl p-8 shadow-md relative hover:shadow-lg transition-shadow">
+          <div class="absolute top-0 right-0 bg-teal-600 text-white text-[9px] font-extrabold uppercase px-3 py-1 rounded-bl-lg tracking-wider" data-i18n="pricing_badge_free">
+            AÇIK KAYNAK
+          </div>
+
+          <div class="text-center md:text-left">
+            <span class="text-xs font-bold uppercase tracking-wider text-teal-600" data-i18n="pricing_plan_label">Sınırsız Paket</span>
+            <h3 class="text-3xl font-outfit font-extrabold text-slate-900 mt-2 mb-3" data-i18n="pricing_plan_name">LinguMark Full</h3>
+            <p class="text-xs text-slate-500 mb-6 leading-relaxed" data-i18n="pricing_plan_desc">Limitsiz kelime kütüphanesi, SM-2 algoritması ve Oxford veritabanıyla dilde tamamen ücretsiz ustalaşın.</p>
+            
+            <div class="flex justify-center md:justify-start items-baseline gap-1 mb-8">
+              <span class="text-5xl font-outfit font-black text-slate-900" data-i18n="pricing_price">0₺</span>
+              <span class="text-xs text-slate-400 font-semibold" data-i18n="pricing_price_suffix">/ sonsuza kadar</span>
+            </div>
+
+            <!-- Fixed checklist with standardized w-4 h-4 width limits -->
+            <ul class="space-y-4 mb-8 text-xs text-slate-600 text-left">
+              <li class="flex items-center gap-3">
+                <svg class="w-4 h-4 text-teal-600 shrink-0" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"></path>
+                </svg>
+                <span data-i18n="pricing_feat_1">Sınırsız kelime çeviri ve arama</span>
+              </li>
+              <li class="flex items-center gap-3">
+                <svg class="w-4 h-4 text-teal-600 shrink-0" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"></path>
+                </svg>
+                <span data-i18n="pricing_feat_2">Limitsiz kütüphane kapasitesi</span>
+              </li>
+              <li class="flex items-center gap-3">
+                <svg class="w-4 h-4 text-teal-600 shrink-0" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"></path>
+                </svg>
+                <span data-i18n="pricing_feat_3">Oxford Gelişmiş Sözlük veri tabanı & IPA</span>
+              </li>
+              <li class="flex items-center gap-3">
+                <svg class="w-4 h-4 text-teal-600 shrink-0" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"></path>
+                </svg>
+                <span data-i18n="pricing_feat_4">SM-2 Akıllı Aralıklı Tekrar algoritması</span>
+              </li>
+              <li class="flex items-center gap-3">
+                <svg class="w-4 h-4 text-teal-600 shrink-0" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"></path>
+                </svg>
+                <span data-i18n="pricing_feat_5">Cihazlar arası Firebase bulut senkronizasyonu (İsteğe Bağlı)</span>
+              </li>
+              <li class="flex items-center gap-3">
+                <svg class="w-4 h-4 text-teal-600 shrink-0" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"></path>
+                </svg>
+                <span data-i18n="pricing_feat_6">Akıllı Web Röntgeni ve FastPath Seviye Patikası</span>
+              </li>
+            </ul>
+          </div>
+
+          <a href="https://chromewebstore.google.com" target="_blank" data-i18n="pricing_btn"
+             class="w-full block py-4 bg-teal-600 hover:bg-teal-700 text-white font-bold text-xs rounded-lg shadow-sm hover:shadow active:scale-[0.98] transition-all text-center">
+            Chrome'a Ekle (Ücretsiz)
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- 6.5. YOL HARİTASI VE GELECEK ÖZELLİKLER -->
+  <section id="roadmap" class="border-t border-slate-200/60 bg-[#FAFAFA] px-4 py-20">
+    <div class="mx-auto max-w-6xl">
+      <div class="text-center mb-14">
+        <span class="text-xs font-bold uppercase tracking-wider text-teal-600" data-i18n="roadmap_badge">Yol Haritası</span>
+        <h2 class="text-3xl font-outfit font-extrabold text-slate-900 mt-2 mb-3" data-i18n="roadmap_title">
+          Geliştirilen ve Planlanan Özellikler
+        </h2>
+        <p class="text-slate-600 text-sm font-normal max-w-xl mx-auto leading-relaxed" data-i18n="roadmap_desc">
+          LinguMark'ı sadece bir eklenti değil, yapay zeka destekli tam kapsamlı bir dil asistanı haline getirmek için üzerinde çalıştığımız yenilikler.
+        </p>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+        
+        <!-- Feature 1 -->
+        <div class="bg-white border border-slate-200 rounded-xl p-6 shadow-sm hover:shadow-md transition-shadow flex flex-col justify-between">
+          <div>
+            <div class="flex items-center justify-between mb-4">
+              <span class="inline-flex items-center justify-center w-10 h-10 rounded-lg bg-teal-50 text-teal-600">
+                <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" d="M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z"></path>
+                </svg>
+              </span>
+              <span class="px-2.5 py-1 text-[10px] font-bold uppercase tracking-wider rounded-full bg-teal-100 text-teal-800" data-i18n="roadmap_status_dev">
+                Geliştiriliyor
+              </span>
+            </div>
+            <h3 class="font-outfit font-bold text-slate-800 text-lg mb-2" data-i18n="roadmap1_title">LinguMark AI Chat Assistant</h3>
+            <p class="text-xs text-slate-500 leading-relaxed font-normal" data-i18n="roadmap1_desc">
+              Bir kelime veya cümleyi seçtiğinizde, sadece çeviri yapmakla kalmayıp, o kelimenin anlamını, alternatif kullanımlarını ve kültürel bağlamını sizinle tartışabileceğiniz, tarayıcı içinde açılan mini bir AI sohbet paneli.
+            </p>
+          </div>
+        </div>
+
+        <!-- Feature 2 -->
+        <div class="bg-white border border-slate-200 rounded-xl p-6 shadow-sm hover:shadow-md transition-shadow flex flex-col justify-between">
+          <div>
+            <div class="flex items-center justify-between mb-4">
+              <span class="inline-flex items-center justify-center w-10 h-10 rounded-lg bg-teal-50 text-teal-600">
+                <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"></path>
+                </svg>
+              </span>
+              <span class="px-2.5 py-1 text-[10px] font-bold uppercase tracking-wider rounded-full bg-teal-100 text-teal-800" data-i18n="roadmap_status_dev">
+                Geliştiriliyor
+              </span>
+            </div>
+            <h3 class="font-outfit font-bold text-slate-800 text-lg mb-2" data-i18n="roadmap2_title">Akıllı PDF & Doküman Desteği</h3>
+            <p class="text-xs text-slate-500 leading-relaxed font-normal" data-i18n="roadmap2_desc">
+              Sadece standart web sayfalarında değil, tarayıcınızda açtığınız yabancı dildeki yerel PDF dosyalarında, e-kitaplarda ve Google Docs dökümanlarında da tek tıkla kelime kaydetme, telaffuz ve cümle analizi yapabilme özelliği.
+            </p>
+          </div>
+        </div>
+
+        <!-- Feature 3 -->
+        <div class="bg-white border border-slate-200 rounded-xl p-6 shadow-sm hover:shadow-md transition-shadow flex flex-col justify-between">
+          <div>
+            <div class="flex items-center justify-between mb-4">
+              <span class="inline-flex items-center justify-center w-10 h-10 rounded-lg bg-teal-50 text-teal-600">
+                <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" d="M19.428 15.428a2 2 0 00-1.022-.547l-2.387-.477a6 6 0 00-3.86.517l-.318.158a6 6 0 01-3.86.517L6.05 15.21a2 2 0 00-1.806.547M8 4h8l-1 1v5.172a2 2 0 00.586 1.414l5 5c1.26 1.26.367 3.414-1.415 3.414H4.828c-1.782 0-2.674-2.154-1.414-3.414l5-5A2 2 0 009 10.172V5L8 4z"></path>
+                </svg>
+              </span>
+              <span class="px-2.5 py-1 text-[10px] font-bold uppercase tracking-wider rounded-full bg-teal-100 text-teal-800" data-i18n="roadmap_status_dev">
+                Geliştiriliyor
+              </span>
+            </div>
+            <h3 class="font-outfit font-bold text-slate-800 text-lg mb-2" data-i18n="roadmap3_title">Yapay Zeka Cümle Üretici</h3>
+            <p class="text-xs text-slate-500 leading-relaxed font-normal" data-i18n="roadmap3_desc">
+              Kaydettiğiniz kelimeleri kalıcı hafızanıza aktarmak için, yapay zekanın o kelimeleri harmanlayarak size özel kısa hikayeler, diyaloglar ve okuma pratikleri hazırlaması ve sizi bu metinler üzerinden test etmesi.
+            </p>
+          </div>
+        </div>
+
+        <!-- Feature 4 -->
+        <div class="bg-white border border-slate-200 rounded-xl p-6 shadow-sm hover:shadow-md transition-shadow flex flex-col justify-between">
+          <div>
+            <div class="flex items-center justify-between mb-4">
+              <span class="inline-flex items-center justify-center w-10 h-10 rounded-lg bg-slate-50 text-slate-600">
+                <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" d="M12 18h.01M8 21h8a2 2 0 002-2V5a2 2 0 00-2-2H8a2 2 0 00-2-2v14a2 2 0 002 2z"></path>
+                </svg>
+              </span>
+              <span class="px-2.5 py-1 text-[10px] font-bold uppercase tracking-wider rounded-full bg-slate-100 text-slate-700" data-i18n="roadmap_status_planned">
+                Planlandı
+              </span>
+            </div>
+            <h3 class="font-outfit font-bold text-slate-800 text-lg mb-2" data-i18n="roadmap4_title">Mobil Destek ve Eşitleme</h3>
+            <p class="text-xs text-slate-500 leading-relaxed font-normal" data-i18n="roadmap4_desc">
+              Tarayıcıda biriktirdiğiniz kelime kütüphanenizi ve cümle bağlamlarını mobil cihazınızla eşitleyerek; yolda, metroda veya gün içinde kısa flashcard egzersizleri ve bildirimlerle tekrar edebileceğiniz iOS/Android uygulaması.
+            </p>
+          </div>
+        </div>
+
+        <!-- Feature 5 -->
+        <div class="bg-white border border-slate-200 rounded-xl p-6 shadow-sm hover:shadow-md transition-shadow flex flex-col justify-between">
+          <div>
+            <div class="flex items-center justify-between mb-4">
+              <span class="inline-flex items-center justify-center w-10 h-10 rounded-lg bg-slate-50 text-slate-600">
+                <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 002 2h2a2 2 0 002-2z"></path>
+                </svg>
+              </span>
+              <span class="px-2.5 py-1 text-[10px] font-bold uppercase tracking-wider rounded-full bg-slate-100 text-slate-700" data-i18n="roadmap_status_planned">
+                Planlandı
+              </span>
+            </div>
+            <h3 class="font-outfit font-bold text-slate-800 text-lg mb-2" data-i18n="roadmap5_title">Unutma Eğrisi Takibi & Analitik</h3>
+            <p class="text-xs text-slate-500 leading-relaxed font-normal" data-i18n="roadmap5_desc">
+              Bilişsel bilimdeki Spaced Repetition (Aralıklı Tekrar) verilerini analiz ederek, öğrendiğiniz kelimeleri tam unutmak üzere olduğunuz kritik zaman dilimlerini hesaplayan ve o anda hatırlatan akıllı bildirim ve gelişmiş analitik modülü.
+            </p>
+          </div>
+        </div>
+
+        <!-- Feature 6 -->
+        <div class="bg-white border border-slate-200 rounded-xl p-6 shadow-sm hover:shadow-md transition-shadow flex flex-col justify-between">
+          <div>
+            <div class="flex items-center justify-between mb-4">
+              <span class="inline-flex items-center justify-center w-10 h-10 rounded-lg bg-slate-50 text-slate-600">
+                <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" d="M19 11a7 7 0 01-7 7m0 0a7 7 0 01-7-7m7 7v4m0 0H8m4 0h4m-4-8a3 3 0 01-3-3V5a3 3 0 116 0v6a3 3 0 01-3 3z"></path>
+                </svg>
+              </span>
+              <span class="px-2.5 py-1 text-[10px] font-bold uppercase tracking-wider rounded-full bg-slate-100 text-slate-700" data-i18n="roadmap_status_planned">
+                Planlandı
+              </span>
+            </div>
+            <h3 class="font-outfit font-bold text-slate-800 text-lg mb-2" data-i18n="roadmap6_title">Konuşma & Telaffuz Geri Bildirimi</h3>
+            <p class="text-xs text-slate-500 leading-relaxed font-normal" data-i18n="roadmap6_desc">
+              Kelimeleri sadece okuyarak değil, sesli telaffuz ederek öğrenmeniz için mikrofon desteğiyle çalışan yapay zeka analizörümüz. Telaffuz doğruluğunuzu ölçer, tonlama ve heceleme hatalarınıza anlık sesli geri dönüşler sağlar.
+            </p>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- 7. BİLİMSEL METODOLOJİ VE SIKÇA SORULAN SORULAR -->
+  <!-- Structured scientific explanations of visual search, sentence context caching, and reading assistant parameters -->
+  <section id="faq" class="px-4 py-20 mx-auto max-w-4xl">
+    
+    <div class="text-center mb-14">
+      <span class="text-xs font-bold uppercase tracking-wider text-teal-600" data-i18n="faq_badge">Öğrenme Bilimi</span>
+      <h2 class="text-3xl font-outfit font-extrabold text-slate-900 mt-2 mb-3" data-i18n="faq_title">
+        Bilimsel Metodolojimiz ve Merak Edilenler
+      </h2>
+      <p class="text-slate-600 text-sm font-normal" data-i18n="faq_desc">LinguMark'ın arkasındaki bilişsel psikoloji metotları ve çalışma prensipleri.</p>
+    </div>
+
+    <div class="space-y-4">
+      
+      <!-- FAQ 1: Dil Yardımcı Asistanı Vurgusu -->
+      <div class="faq-item bg-white border border-slate-200 rounded-xl overflow-hidden shadow-sm">
+        <button class="faq-header w-full px-6 py-5 flex items-center justify-between text-left focus:outline-none select-none">
+          <span class="font-outfit font-bold text-slate-800 text-base md:text-lg" data-i18n="faq1_q">LinguMark sadece bir dil öğrenme programı mıdır?</span>
+          <svg class="faq-arrow w-5 h-5 text-slate-400 transition-transform duration-300 shrink-0" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7"></path>
+          </svg>
+        </button>
+        <div class="faq-content max-h-0 opacity-0 transition-all duration-300 ease-in-out px-6">
+          <div class="pb-5 text-xs text-slate-600 leading-relaxed space-y-2 font-normal" data-i18n="faq1_a">
+            <p>
+              Hayır. LinguMark statik, günde 15 dakika açıp kelime ezberlemeye çalıştığınız geleneksel dil programlarından tamamen farklıdır. LinguMark, günlük internet gezinme akışınızla (okuduğunuz makaleler, yazılım dökümanları, bloglar) bütünleşen aktif bir <strong>"Dil Okuma ve Öğrenme Asistanıdır"</strong>.
+            </p>
+            <p>
+              Uygulama siz işinizi yaparken tarayıcınızda sessizce çalışır, bilmediğiniz terimlerde yerinde yardım sunarak okuma akışınızı bölmeden kelimeleri dağarcığınıza katar. Sizi kelime listeleriyle boğmak yerine, okuma alışkanlıklarınızı doğrudan bir öğrenme sürecine dönüştürür.
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <!-- FAQ 2: Google Images Araştır Butonu Bilimsel Açıklama -->
+      <div class="faq-item bg-white border border-slate-200 rounded-xl overflow-hidden shadow-sm">
+        <button class="faq-header w-full px-6 py-5 flex items-center justify-between text-left focus:outline-none select-none">
+          <span class="font-outfit font-bold text-slate-800 text-base md:text-lg" data-i18n="faq2_q">Neden kartlara otomatik resim koymak yerine Google Görseller'de "Araştır" butonu sunuyoruz?</span>
+          <svg class="faq-arrow w-5 h-5 text-slate-400 transition-transform duration-300 shrink-0" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7"></path>
+          </svg>
+        </button>
+        <div class="faq-content max-h-0 opacity-0 transition-all duration-300 ease-in-out px-6">
+          <div class="pb-5 text-xs text-slate-600 leading-relaxed space-y-2 font-normal" data-i18n="faq2_a">
+            <p>
+              Bilişsel psikolojide <strong>Aktif Geri Çağırma (Active Recall)</strong> ve <strong>Görsel Eşleştirme (Active Visual Mapping)</strong> süreçleri, belleğin kalıcılığında en belirleyici faktörlerdir. Kelime kartlarına eklenti tarafından otomatik yerleştirilmiş tek bir sabit resim koymak, kullanıcıda <strong>"Pasif Tanıma" (Passive Recognition)</strong> yanılgısına yol açar; beyin kelimeyi sadece o özel resimle eşleştirir ve gerçek hayatta karşılaştığında hatırlamakta zorlanır.
+            </p>
+            <p>
+              LinguMark, kullanıcının Google Görseller butonu ile kelimeyi aktif olarak aratarak, kendi zihninde kelimenin anlamını en iyi temsil eden görsel sonuçları (birden çok varyasyonla) bizzat filtreleyip incelemesine olanak tanır. Bu aktif arama ve görsel seçme süreci, beyindeki görsel korteks yollarını uyararak kelimenin kalıcı olarak hafızaya kazınmasını sağlar.
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <!-- FAQ 3: Bağlam (Context) Kaydı Bilimsel Açıklama -->
+      <div class="faq-item bg-white border border-slate-200 rounded-xl overflow-hidden shadow-sm">
+        <button class="faq-header w-full px-6 py-5 flex items-center justify-between text-left focus:outline-none select-none">
+          <span class="font-outfit font-bold text-slate-800 text-base md:text-lg" data-i18n="faq3_q">Kelimeleri neden ilk karşılaşılan cümle bağlamları (Context) ile birlikte kaydediyoruz?</span>
+          <svg class="faq-arrow w-5 h-5 text-slate-400 transition-transform duration-300 shrink-0" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7"></path>
+          </svg>
+        </button>
+        <div class="faq-content max-h-0 opacity-0 transition-all duration-300 ease-in-out px-6">
+          <div class="pb-5 text-xs text-slate-600 leading-relaxed space-y-2 font-normal" data-i18n="faq3_a">
+            <p>
+              Hafıza biliminde <strong>Bağlama Duyarlı Bellek (Context-Dependent Memory)</strong> ve dil ediniminde <strong>Sentaktik İpuçları (Syntactic Bootstrapping)</strong> kavramları, yeni bilgilerin yerleşmesini doğrudan etkiler. Bir kelimeyi soyut bir liste halinde tek başına ezberlemek, beynin "ilişkilendirme" (association) mekanizmasını devre dışı bırakır.
+            </p>
+            <p>
+              LinguMark, kaydettiğiniz her kelimeyi, o kelimeyle ilk karşılaştığınız cümlenin tamamı ve bulunduğunuz sayfanın URL'si ile birlikte kaydeder. Kelimeyi tekrar ederken, kelimenin ilk geçtiği orijinal cümleyi ve kaynağı görmek, beynin o anki okuma deneyimini ve bağlamı yeniden canlandırmasını sağlar. Bu sayede kelime kalıcı hafızaya çok daha hızlı aktarılır ve cümle içindeki gramer rolüyle doğru şekilde öğrenilir.
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <!-- FAQ 4: Neden Ücretsiz? Açıklaması -->
+      <div class="faq-item bg-white border border-slate-200 rounded-xl overflow-hidden shadow-sm">
+        <button class="faq-header w-full px-6 py-5 flex items-center justify-between text-left focus:outline-none select-none">
+          <span class="font-outfit font-bold text-slate-800 text-base md:text-lg" data-i18n="faq4_q">LinguMark neden tamamen ücretsizdir? Herhangi bir gizli ücret var mı?</span>
+          <svg class="faq-arrow w-5 h-5 text-slate-400 transition-transform duration-300 shrink-0" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7"></path>
+          </svg>
+        </button>
+        <div class="faq-content max-h-0 opacity-0 transition-all duration-300 ease-in-out px-6">
+          <div class="pb-5 text-xs text-slate-600 leading-relaxed space-y-2 font-normal" data-i18n="faq4_a">
+            <p>
+              LinguMark, dil öğrenimini herkes için erişilebilir kılmak amacıyla açık kaynak kodlu olarak geliştirilmiştir. Verilerinizi kendi tarayıcınızda veya kişisel Firebase hesabınızda saklayarak sunucu işletim maliyetlerini sıfırlıyoruz. Bu sayede hiçbir gizli ücret, abonelik veya reklam olmadan LinguMark'ın tüm özelliklerini ömür boyu tamamen ücretsiz olarak kullanabilirsiniz.
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <!-- FAQ 5: SM-2 Algoritması -->
+      <div class="faq-item bg-white border border-slate-200 rounded-xl overflow-hidden shadow-sm">
+        <button class="faq-header w-full px-6 py-5 flex items-center justify-between text-left focus:outline-none select-none">
+          <span class="font-outfit font-bold text-slate-800 text-base md:text-lg" data-i18n="faq5_q">SM-2 (SuperMemo-2) Aralıklı Tekrar algoritması nasıl çalışır?</span>
+          <svg class="faq-arrow w-5 h-5 text-slate-400 transition-transform duration-300 shrink-0" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7"></path>
+          </svg>
+        </button>
+        <div class="faq-content max-h-0 opacity-0 transition-all duration-300 ease-in-out px-6">
+          <div class="pb-5 text-xs text-slate-600 leading-relaxed space-y-2 font-normal" data-i18n="faq5_a">
+            <p>
+              SM-2, hafıza bilimindeki "Unutma Eğrisi" (Forgetting Curve) araştırmalarına dayalı olarak geliştirilmiş matematiksel bir formüldür. Kütüphanenizdeki kelimeleri gözden geçirirken sistem size 4 hatırlama derecesi sunar: <strong>Tekrar (Again)</strong>, <strong>Zor (Hard)</strong>, <strong>İyi (Good)</strong> ve <strong>Kolay (Easy)</strong>.
+            </p>
+            <p>
+              Algoritma her geri bildiriminizde kelimenin kolaylık katsayısını (Ease Factor - EF) ve bir sonraki gösterim aralığını (Interval) günceller. Bu sayede, iyi bildiğiniz kelimeleri haftalarca görmezken, zorlandığınız kelimeleri sıklıkla tekrar ederek beyninizin kalıcı nöral bağlantılar kurması sağlanır.
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <!-- FAQ 6: Gizlilik ve Performans -->
+      <div class="faq-item bg-white border border-slate-200 rounded-xl overflow-hidden shadow-sm">
+        <button class="faq-header w-full px-6 py-5 flex items-center justify-between text-left focus:outline-none select-none">
+          <span class="font-outfit font-bold text-slate-800 text-base md:text-lg" data-i18n="faq6_q">Verilerim nerede depolanıyor? Eklenti sekmeleri yavaşlatır mı?</span>
+          <svg class="faq-arrow w-5 h-5 text-slate-400 transition-transform duration-300 shrink-0" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7"></path>
+          </svg>
+        </button>
+        <div class="faq-content max-h-0 opacity-0 transition-all duration-300 ease-in-out px-6">
+          <div class="pb-5 text-xs text-slate-600 leading-relaxed space-y-2 font-normal" data-i18n="faq6_a">
+            <p>
+              LinguMark, Chrome Manifest V3 standartlarında geliştirilmiş ultra hafif bir uzantıdır. Web sayfalarını tararken performans kaybına veya yavaşlamaya neden olmaması için özel bir <strong>"TreeWalker Tarama Algoritması"</strong> kullanır. Bu sayede sayfalardaki script, style veya kod etiketleri elenerek yalnızca okunabilir metin düğümleri (TextNodes) taranır.
+            </p>
+            <p>
+              Tüm verileriniz tarayıcınızın yerel belleğinde (IndexedDB) saklanır. Dilerseniz eklenti ayarlarından verilerinizi Google Firebase bulut veritabanında şifreli olarak yedekleyip cihazlarınız arasında eşitleyebilirsiniz. Tarama geçmişiniz asla sunucularımıza gönderilmez veya üçüncü şahıslara satılmaz.
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <!-- FAQ 7: Açık Kaynak Kod Katkısı -->
+      <div class="faq-item bg-white border border-slate-200 rounded-xl overflow-hidden shadow-sm">
+        <button class="faq-header w-full px-6 py-5 flex items-center justify-between text-left focus:outline-none select-none">
+          <span class="font-outfit font-bold text-slate-800 text-base md:text-lg" data-i18n="faq7_q">LinguMark açık kaynak kodlarına nereden erişebilirim veya katkıda bulunabilirim?</span>
+          <svg class="faq-arrow w-5 h-5 text-slate-400 transition-transform duration-300 shrink-0" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7"></path>
+          </svg>
+        </button>
+        <div class="faq-content max-h-0 opacity-0 transition-all duration-300 ease-in-out px-6">
+          <div class="pb-5 text-xs text-slate-600 leading-relaxed space-y-2 font-normal" data-i18n="faq7_a">
+            <p>
+              LinguMark kodları GitHub üzerinde barındırılmaktadır. Projeye katkıda bulunmak, hata bildirmek veya kendi tarayıcınız için derlemek istiyorsanız GitHub depomuzu ziyaret edebilirsiniz. Her türlü geri bildirim ve katkı projenin gelişimine büyük destek sağlayacaktır.
+            </p>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- 8. CTA BOTTOM SECTION -->
+  <section class="px-4 py-20 mx-auto max-w-5xl text-center">
+    <div class="bg-white border border-slate-200 rounded-xl p-10 md:p-14 shadow-sm">
+      <h2 class="text-3xl font-outfit font-extrabold text-slate-900 mb-4" data-i18n="cta_bottom_title">Okurken Öğrenmeye Bugün Başlayın</h2>
+      <p class="text-slate-600 text-sm max-w-xl mx-auto mb-8 font-normal leading-relaxed" data-i18n="cta_bottom_desc">
+        LinguMark uzantısını tarayıcınıza ekleyin, internetteki İngilizce makaleleri okurken takıldığınız kelimeleri bilimsel aralıklarla hafızanıza kazıyın.
+      </p>
+      <a href="https://chromewebstore.google.com" target="_blank" data-i18n="cta_bottom_btn"
+         class="inline-flex items-center justify-center px-8 py-3.5 bg-teal-600 hover:bg-teal-700 text-white font-bold text-sm rounded-lg shadow-sm active:scale-95 transition-all">
+        Hemen Chrome'a Ekle (Ücretsiz)
+      </a>
+    </div>
+  </section>
+
+  <!-- 9. FOOTER SECTION -->
+  <footer class="border-t border-slate-200/60 bg-white py-12 text-xs text-slate-500">
+    <div class="container px-4 mx-auto max-w-7xl flex flex-col md:flex-row items-center justify-between gap-6">
+      
+      <!-- Brand description -->
+      <div class="flex flex-col items-center md:items-start gap-1">
+        <span class="font-outfit text-slate-900 font-bold text-sm flex items-center gap-2">
+          <img src="/public/icons/logo_32.png" alt="LinguMark Logo" class="w-5.5 h-5.5 rounded shadow-sm">
+          LinguMark
+        </span>
+        <p class="text-slate-400" data-i18n="footer_copyright">© 2026 LinguMark. Tüm hakları saklıdır.</p>
+      </div>
+
+      <!-- Legal Policy Links -->
+      <div class="flex items-center gap-6 font-semibold text-slate-600">
+        <a href="/privacy.html" class="hover:text-teal-600 transition-colors" data-i18n="footer_privacy">Gizlilik Politikası</a>
+        <a href="/terms.html" class="hover:text-teal-600 transition-colors" data-i18n="footer_terms">Kullanım Koşulları</a>
+        <a href="mailto:support@lingumark.com" class="hover:text-teal-600 transition-colors" data-i18n="footer_support">Destek (Support)</a>
+      </div>
+      
+    </div>
+  </footer>
+
+  <!-- Include our JS logic for dynamic clicking sandbox and faq controls -->
+  <script type="module" src="/src/main.js"></script>
+</body>
+</html>

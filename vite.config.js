@@ -13,7 +13,8 @@ export default defineConfig({
     rollupOptions: {
       input: {
         // Multi-page entrypoints
-        main: resolve(__dirname, 'index.html'),
+        index: resolve(__dirname, 'index.html'),
+        linguMark: resolve(__dirname, 'linguMark.html'),
         privacy: resolve(__dirname, 'privacy.html'),
         terms: resolve(__dirname, 'terms.html')
       }
